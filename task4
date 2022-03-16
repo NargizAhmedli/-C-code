@@ -1,0 +1,5 @@
+ static void Addelement(ref int[] arr, ref int num)
+        {
+            Array.Resize(ref arr, arr.Length - 1);
+            arr[arr.Length - 1] = num;
+        }
