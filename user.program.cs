@@ -75,11 +75,5 @@ namespace Homework
             return false;
         }
 
-        static void AddInt(ref int[] arr, int num)
-        {
-            Array.Resize(ref arr, arr.Length + 1);
-            arr[arr.Length - 1] = num;
-        }
-
     }
 }
