@@ -1,0 +1,86 @@
+CREATE DATABASE Exam
+
+USE Exam
+
+CREATE TABLE Groups
+(
+	Id INT PRIMARY KEY IDENTITY,
+	No NVARCHAR(10) NOT NULL
+)
+
+INSERT INTO Groups(No)
+VALUES
+('AP203'),
+('AP205'),
+('AZ230'),
+('AT406'),
+('FN210')
+
+CREATE TABLE Students
+(
+	Id INT PRIMARY KEY IDENTITY,
+	Name NVARCHAR(20) NOT NULL,
+	Surname NVARCHAR(20) NOT NULL,
+	GroupId INT FOREIGN KEY REFERENCES Groups(Id)
+)
+
+INSERT INTO Students(Name,Surname)
+VALUES
+('Nergis','Seyyaf'),
+('Vusal','Qocayev'),
+('Fatime','Seyyaf'),
+('Omer','Seyyaf'),
+('Gunay','Eliyeva')
+
+CREATE TABLE Subjects
+(
+	Id INT PRIMARY KEY IDENTITY,
+	No NVARCHAR(20) NOT NULL
+)
+INSERT INTO Subjects
+VALUES
+('Cografiya'),
+('İnformatika'),
+('Ingilis dili'),
+('Fizika'),
+('Kimya')
+
+CREATE TABLE Exams
+(
+	Id INT PRIMARY KEY IDENTITY,
+	Date DATETIME2 DEFAULT GETDATE(),
+	SubjectId INT FOREIGN KEY REFERENCES Subjects(Id)
+)
+INSERT INTO Exams
+VALUES
+('2020-10-10'),
+('2020-05-13'),
+('2020-07-14'),
+('2021-07-06'),
+('2022-10-21')
+
+CREATE TABLE StudentExams
+(
+	Id INT PRIMARY KEY IDENTITY,
+	StudentId INT FOREIGN KEY REFERENCES Students(Id),
+	ExamId INT FOREIGN KEY REFERENCES Exams(Id),
+	Result TINYINT NOT NULL
+)
+
+INSERT INTO StudentExams(Result,StudentId,ExamsId)
+VALUES
+(70,2,1),
+(75,1,4),
+(67,2,3),
+(74,3,4),
+(80,3,5)
+
+SELECT St.Id, St.Name, St.Surname, Groups.No FROM Students AS St
+
+SELECT St.Id, St.Name, St.Surname, (SELECT COUNT(Id) FROM Exams WHERE StudentId=St.Id) FROM Students AS St
+
+SELECT Se.Result AS 'Result',St.Name+' '+St.Surname AS 'Fullname',(SELECT *FROM Students WHERE GroupId=Groups.No) FROM StudentExams AS Se
+
+
+
+
