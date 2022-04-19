@@ -1,0 +1,11 @@
+CREATE DATABASE Library
+
+USE Library
+
+CREATE TABLE Courses
+(
+Id int PRIMARY KEY IDENTITY,
+Name NVARCHAR(100) NOT NULL,
+Description NVARCHAR,
+Peice DECIMAL(18, 2)
+)
