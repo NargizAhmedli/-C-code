@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>AZTU</h1>
+<p>Azerbaijan Techhnical University.</p>
+<br>
+<br>
+<p>Subject</p>
+<ul>
+    <li>Kimya</li>
+    <li>Fizika</li>
+    <li>Ingilis dili</li>
+    <li>Cografiya</li>
+    <li>Informatika</li>
+    <ol>
+        <li>Test Tube</li>
+        <li>Ampermetr</li>
+        <li>London</li>
+        <li>Xerite</li>
+        <li>Komputer</li>
+    </ol>
+</ul>
+
+<h1>HTML ANKET</h1>
+
+<form action="/action_page.php" method = "post">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname"><br><br>
+  <label for="pwd">Password:</label>
+  <input type="password" id="pwd" name="pwd" minlength="8"><br><br>
+  <input type="radio" id="html" name="gender">
+  <label for="html">Male</label><br>
+  <input type="radio" id="css" name="gender">
+  <label for="css">Female</label><br>
+  <input type="submit" value="Submit">
+
+</body>
+</html>
